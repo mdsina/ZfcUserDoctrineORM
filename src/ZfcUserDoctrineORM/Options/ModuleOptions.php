@@ -18,6 +18,8 @@ class ModuleOptions extends BaseModuleOptions
 
     /**
      * @param boolean $enableDefaultEntities
+     *
+     * @return $this
      */
     public function setEnableDefaultEntities($enableDefaultEntities)
     {

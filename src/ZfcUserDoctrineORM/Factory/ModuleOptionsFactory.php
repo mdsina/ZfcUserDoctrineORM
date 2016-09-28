@@ -1,8 +1,8 @@
 <?php
 namespace ZfcUserDoctrineORM\Factory;
 
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Interop\Container\ContainerInterface;
+use Zend\ServiceManager\Factory\FactoryInterface;
 use ZfcUserDoctrineORM\Options\ModuleOptions;
 
 class ModuleOptionsFactory implements FactoryInterface
@@ -10,7 +10,7 @@ class ModuleOptionsFactory implements FactoryInterface
     /**
      * {@inheritDoc}
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ContainerInterface $serviceLocator, $name, array $options = null)
     {
         $config = $serviceLocator->get('Config');
 

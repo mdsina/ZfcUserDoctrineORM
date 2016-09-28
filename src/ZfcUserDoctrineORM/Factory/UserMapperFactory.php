@@ -1,23 +1,19 @@
 <?php
 namespace ZfcUserDoctrineORM\Factory;
 
-use Zend\Db;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\Stdlib\Hydrator;
-use ZfcUser\Mapper;
-use ZfcUser\Options;
+use Interop\Container\ContainerInterface;
+use Zend\ServiceManager\Factory\FactoryInterface;
 
 class UserMapperFactory implements FactoryInterface
 {
     /**
      * {@inheritDoc}
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         return new \ZfcUserDoctrineORM\Mapper\User(
-            $serviceLocator->get('zfcuser_doctrine_em'),
-            $serviceLocator->get('zfcuser_module_options')
+            $container->get('zfcuser_doctrine_em'),
+            $container->get('zfcuser_module_options')
         );
     }
 }
